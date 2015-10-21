@@ -12,5 +12,15 @@
   },
   "author": "",
   "license": "MIT",
-  "homepage": "https://bitbucket.org/amorphius/redux-sandbox#readme"
+  "homepage": "https://bitbucket.org/amorphius/redux-sandbox#readme",
+  "dependencies": {
+    "express": "^4.13.3",
+    "immutable": "^3.7.5",
+    "react": "^0.14.0",
+    "react-redux": "^4.0.0",
+    "redux": "^3.0.3",
+    "redux-devtools": "^2.1.5",
+    "webpack": "^1.12.2",
+    "webpack-dev-middleware": "^1.2.0"
+  }
 }
