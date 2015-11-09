@@ -1,16 +1,29 @@
+import "babel-core/polyfill"
 import React from "react"
-import ReactDOM from "react-dom"
-import { Router, Route } from "react-router"
+import {Provider} from "react-redux"
+import {ReduxRouter} from "redux-router"
 
-import App from "./app"
-import NotFound from "./components/not-found/not-found"
-import Test from "./components/test/test"
+import store from "./store"
 
-ReactDOM.render((
-    <Router>
-        <Route path="/" component={App}>
-            <Route path="test" component={Test} />
-        </Route>
-    </Router>
-), document.getElementById("app"))
+if (__DEVTOOLS__) {
+    const {DebugPanel, DevTools, LogMonitor} = require("redux-devtools/lib/react")
 
+    React.render(
+        <section>
+            <Provider store={store}>
+                {() => <ReduxRouter />}
+            </Provider>
+            <DebugPanel top right bottom>
+                <DevTools store={store} monitor={LogMonitor} />
+            </DebugPanel>
+        </section>,
+        document.getElementById("app")
+    )
+} else {
+    React.render(
+        <Provider store={store}>
+            {() => <ReduxRouter />}
+        </Provider>,
+        document.getElementById("app")
+    )
+}
