@@ -1,21 +1,21 @@
-import webpack from "webpack"
-import path from "path"
-import HtmlWebpackPlugin from "html-webpack-plugin"
+import webpack from 'webpack'
+import path from 'path'
+import HtmlWebpackPlugin from 'html-webpack-plugin'
 
 
 export default {
     entry: [
-        "webpack-hot-middleware/client",
-        "./src/js/entry.js"
+        'webpack-hot-middleware/client',
+        './src/js/entry.js'
     ],
     output: {
-        path: path.join(__dirname, "dist"),
-        filename: "bundle.js",
-        publicPath: "/"
+        path: path.join(__dirname, 'dist'),
+        filename: 'bundle.js',
+        publicPath: '/'
     },
     cache: true,
     debug: true,
-    devtool: "sourcemap",
+    devtool: 'sourcemap',
     stats: {
       colors: true,
       reasons: true
@@ -34,7 +34,22 @@ export default {
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
-                loader: 'babel'
+                loader: 'babel',
+                query: {
+                    plugins: ['react-transform'],
+                    extra: {
+                        'react-transform': {
+                            transforms: [{
+                                transform: 'react-transform-hmr',
+                                imports: ['react'],
+                                locals: ['module']
+                            }, {
+                                transform: 'react-transform-catch-errors',
+                                imports: ['react', 'redbox-react']
+                            }]
+                        }
+                    }
+                }
             }
         ]
     },

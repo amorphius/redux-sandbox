@@ -1,6 +1,6 @@
 import {compose, createStore, applyMiddleware} from "redux"
 import {reduxReactRouter} from "redux-router"
-import {createHistory} from "history"
+import {createHashHistory as createHistory} from "history"
 import {devTools} from "redux-devtools"
 import thunk from "redux-thunk"
 

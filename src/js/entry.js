@@ -1,5 +1,6 @@
 import "babel-core/polyfill"
 import React from "react"
+import {render} from "react-dom"
 import {Provider} from "react-redux"
 import {ReduxRouter} from "redux-router"
 
@@ -8,10 +9,10 @@ import store from "./store"
 if (__DEVTOOLS__) {
     const {DebugPanel, DevTools, LogMonitor} = require("redux-devtools/lib/react")
 
-    React.render(
+    render(
         <section>
             <Provider store={store}>
-                {() => <ReduxRouter />}
+                <ReduxRouter />
             </Provider>
             <DebugPanel top right bottom>
                 <DevTools store={store} monitor={LogMonitor} />
@@ -20,9 +21,9 @@ if (__DEVTOOLS__) {
         document.getElementById("app")
     )
 } else {
-    React.render(
+    render(
         <Provider store={store}>
-            {() => <ReduxRouter />}
+            <ReduxRouter />
         </Provider>,
         document.getElementById("app")
     )

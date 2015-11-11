@@ -13,6 +13,7 @@ app.use(WebpackDevMiddleware(compiler, {
     noInfo: false,
     publicPath: config.output.publicPath,
     historyApiFallback: true,
+    hot: true,
     stats: {
         colors: true
     }

@@ -1,4 +1,11 @@
+import {combineReducers} from "redux"
+import {routerStateReducer as router} from "redux-router"
 
-export default (state = {norm: 42}, action) => {
-    return state
-}
+let reducer = (state = {norm: 42}, action) => state
+
+const rootReducer = combineReducers({
+    reducer,
+    router
+})
+
+export default rootReducer
