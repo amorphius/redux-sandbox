@@ -1,7 +1,12 @@
-import React from "react"
+import React, {Component} from "react"
+import {Link} from "react-router"
 
-export default class NotFound {
+
+export default class NotFound extends Component {
     render() {
-        return <h2>Not found. 404, sorry</h2>
+        return <section>
+            <h2>Not found. 404, sorry</h2>
+            <Link to="/">Go Home</Link>
+        </section>
     }
 }

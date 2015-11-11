@@ -7,7 +7,8 @@ export default class IndexPage extends Component {
         return (
             <section className="index-page">
                 <h1>Index page</h1>
-                <Link to="test">Test router!</Link>
+                <Link to="test">Test router!</Link><br />
+                <Link to="non-existant">Go to non-existant page</Link>
             </section>
         )
     }
