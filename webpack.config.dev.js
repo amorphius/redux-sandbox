@@ -15,7 +15,7 @@ export default {
     },
     cache: true,
     debug: true,
-    devtool: 'sourcemap',
+    devtool: 'cheap-module-source-map',
     stats: {
       colors: true,
       reasons: true
@@ -34,22 +34,7 @@ export default {
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
-                loader: 'babel',
-                query: {
-                    plugins: ['react-transform'],
-                    extra: {
-                        'react-transform': {
-                            transforms: [{
-                                transform: 'react-transform-hmr',
-                                imports: ['react'],
-                                locals: ['module']
-                            }, {
-                                transform: 'react-transform-catch-errors',
-                                imports: ['react', 'redbox-react']
-                            }]
-                        }
-                    }
-                }
+                loader: 'babel'
             }
         ]
     },
